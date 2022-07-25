@@ -1,0 +1,47 @@
+@startuml
+Class Solitaire
+Class Goal
+Class Player
+Class Turn
+Class Move
+Class SolitaireBoard
+Class Cards
+Class Put
+Class Pick
+Enum Suit
+Enum Ranking
+Player o-down-SolitaireBoard
+Player o-down-Cards
+Turn -down- Player
+Solitaire*--down-Turn
+Solitaire*--down-Player
+Solitaire*--down-SolitaireBoard
+SolitaireBoard o--down-Cards
+Goal ..>Move
+Move ..>Pick
+Move ..>Put
+Put..>Cards
+Pick ..>Cards
+Player O--down- Goal
+Cards*--down-Suit
+Suit<|-CLUBS
+Suit<|-DIAMONDS
+Suit<|-HEARTS
+Suit<|-SPADES
+Cards*-- Ranking
+Ranking<|- DEUCE
+Ranking<|- THREE
+Ranking<|- FOUR
+Ranking<|- FIVE
+Ranking<|- SIX
+Ranking<|- SEVEN
+Ranking<|- TEN
+Ranking<|- JACK
+Ranking<|- QUEEN
+Ranking<|- KING
+Ranking<|- ACE
+
+Put..>SolitaireBoard
+Pick..>SolitaireBoard
+
+@enduml
