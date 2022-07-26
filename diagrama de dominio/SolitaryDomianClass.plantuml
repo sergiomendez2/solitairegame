@@ -15,6 +15,7 @@ Player o-down-Cards
 Turn -down- Player
 Solitaire*--down-Turn
 Solitaire*--down-Player
+Player<|- Human
 Solitaire*--down-SolitaireBoard
 SolitaireBoard o--down-Cards
 Goal ..>Move
@@ -43,5 +44,9 @@ Ranking<|- ACE
 
 Put..>SolitaireBoard
 Pick..>SolitaireBoard
+Remove..>SolitaireBoard
+Remove..>Cards
+Goal..>Remove
+
 
 @enduml

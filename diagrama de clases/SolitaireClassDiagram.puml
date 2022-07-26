@@ -1,0 +1,84 @@
+@startuml
+
+package game{
+Class Game{
++play()
++getPlayer()
++resume()
+}
+package player{
+abstract class Player{
++id
++name
+}
+Class Human
+}
+package SolitaireGame{
+Interface SolitaireGamePlayer{
+getCoordinate(SolitaireBoard board)
+}
+Enum Ranking{
++DEUCE
++THREE
++FOUR
++FIVE
++SIX
++SEVEN
++EIGHT
++NINE
++TEN
++JACK
++QUEEN
++KING
++ACE
+}
+
+Enum Suit{
++DIAMONDS
++CLUBS
++SPADES
++HEARTS
+}
+
+Class Turn{
++put()
++pick()
++remove()
++EndGame()
+}
+Class Color
+
+Class Solitaire{
++Solitaire()
++SolitaireGamePlayer solitairePlayer
+
+}
+
+Class SolitaireBoard{
++addCards()
++ShuffleCards()
++getWinner()
+}
+Class Cards
+
+}
+Interface GamePlayer
+
+
+Solitaire*--SolitaireBoard
+SolitaireBoard o--Cards
+Solitaire*--Turn
+Solitaire*--Player
+Player<|-Human
+Cards *-right- Color
+GamePlayer..|> SolitaireGamePlayer
+Player..|>GamePlayer
+Solitaire*-- SolitaireGamePlayer
+Cards*-- Ranking
+Cards*-- Suit
+SolitaireGamePlayer*--Cards
+Game*..GamePlayer
+Solitaire..|> Game
+SolitaireBoard*--Turn
+
+@enduml
